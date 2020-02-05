@@ -56,5 +56,8 @@ module.exports = {
             }
         ]
     },
-    plugins: [new CleanWebpackPlugin(), new ProgressBarPlugin(), new VueLoaderPlugin()]
+    plugins: [new CleanWebpackPlugin(), new ProgressBarPlugin(), new VueLoaderPlugin()],
+    externals: {
+        vue: 'vue'
+    }
 };
