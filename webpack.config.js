@@ -14,12 +14,15 @@ module.exports = {
     mode: 'production',
     stats: 'none',
     resolve: {
-        extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
+        extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
     },
     module: {
         rules: [
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 use: [
                     'babel-loader',
                     {
@@ -29,7 +32,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file)
             },
