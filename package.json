@@ -3,12 +3,26 @@
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
+    "module": "dist/index.js",
+    "unpkg": "dist/index.js",
     "typings": "dist/index.d.ts",
     "sideEffects": true,
     "files": [
         "src",
         "dist"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://xxxx/xxx.git"
+    },
+    "keywords": [
+        "vue",
+        "component"
+    ],
+    "bugs": {
+        "url": "https://xxxx/issues"
+    },
+    "license": "MIT",
     "scripts": {
         "build": "webpack",
         "lint": "vue-cli-service lint"
@@ -28,6 +42,7 @@
         "eslint": "^5.16.0",
         "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-vue": "^5.0.0",
+        "lint-staged": "^10.0.7",
         "prettier": "^1.19.1",
         "progress-bar-webpack-plugin": "^2.1.0",
         "sass": "^1.23.7",
@@ -38,5 +53,19 @@
         "vue-template-compiler": "^2.6.10",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
+    },
+    "browserslist": [
+        "last 2 Chrome versions",
+        "> 1%",
+        "not ie <= 11"
+    ],
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,vue,ts}": [
+            "vue-cli-service lint",
+            "git add"
+        ]
     }
 }
